@@ -39,10 +39,15 @@ public class Usuario {
 	private String email; // Para o cadastro de acesso da usuária na rede social. Terá no máximo 1000 caracteres.
 	
 	@NotBlank
-	@Size(min = 6, max = 20)
+	@Size(min = 5, max = 100)
+	private String usuario;
+	
+	@NotBlank
+	@Size(min = 5, max = 100)
 	private String senha; // Será usado para segurança e entrada da usuária na rede social. Terá no máximo 20 caracteres
 	
 	@Size(min = 5, max = 2000)
+
 	private String link;
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
@@ -83,6 +88,14 @@ public class Usuario {
 		this.email = email;
 	}
 
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
 	public String getSenha() {
 		return senha;
 	}
@@ -106,6 +119,6 @@ public class Usuario {
 	public void setPostagem(List<Postagem> postagem) {
 		this.postagem = postagem;
 	}
-	
+
 	//Fim getters and setters
 }
